@@ -1,0 +1,357 @@
+/* Reset & base */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #f9fafb;
+  color: #222;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+
+.navbar {
+  background: #003366;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideDown 0.8s ease forwards;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #00aaff;
+}
+
+/* Hero Section */
+
+.hero {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.6rem;
+  color: #003366;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  color: #555;
+  animation: fadeIn 2s ease forwards;
+}
+
+/* AI Quote Window */
+
+.ai-quote-window {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  max-width: 450px;
+  margin: 0 auto;
+  animation: fadeSlideIn 1.2s ease forwards;
+  transition: box-shadow 0.3s ease;
+}
+
+.ai-quote-window:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+}
+
+.ai-quote-window h2 {
+  margin-bottom: 1.2rem;
+  color: #003366;
+  font-weight: 700;
+}
+
+.ai-quote-window form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.ai-quote-window label {
+  font-weight: 600;
+  color: #222;
+  text-align: left;
+}
+
+.ai-quote-window input {
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.ai-quote-window input:focus {
+  border-color: #00aaff;
+  outline: none;
+}
+
+.ai-quote-window button {
+  background: #003366;
+  color: white;
+  font-weight: 700;
+  padding: 0.7rem 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.ai-quote-window button:hover {
+  background: #005bb5;
+}
+
+/* Quote result */
+
+.quote-result {
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0077cc;
+  min-height: 2rem;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Content Sections */
+
+.content-section {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  padding: 2.5rem 3rem;
+  animation: fadeSlideIn 1.2s ease forwards;
+  color: #222;
+}
+
+.content-section h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #003366;
+}
+
+.content-section h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: #005bb5;
+}
+
+.content-section p,
+.content-section ul,
+.content-section ol {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+.content-section ul,
+.content-section ol {
+  padding-left: 1.2rem;
+}
+
+.content-section ul li,
+.content-section ol li {
+  margin-bottom: 0.6rem;
+}
+
+/* Button style for API link */
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  background-color: #003366;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn-primary:hover {
+  background-color: #005bb5;
+}
+
+/* Services Page */
+
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-item {
+  background: #e8f0fe;
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+}
+
+.service-item h2 {
+  margin-bottom: 0.8rem;
+  color: #003366;
+}
+
+/* Contact Form */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: #222;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #00aaff;
+  outline: none;
+}
+
+.contact-form button {
+  background: #003366;
+  color: white;
+  font-weight: 700;
+  padding: 0.8rem 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  max-width: 220px;
+  align-self: flex-start;
+}
+
+.contact-form button:hover {
+  background: #005bb5;
+}
+
+/* Footer */
+
+footer {
+  margin-top: auto;
+  background: #003366;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* Animations */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .service-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    display: none; /* For simplicity, hide menu on mobile; can be replaced with hamburger */
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .ai-quote-window {
+    width: 90%;
+  }
+  .content-section {
+    padding: 2rem 1rem;
+  }
+}
