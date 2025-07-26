@@ -29,18 +29,87 @@
         <div class="service-item">
           <h2>LTL (Less Than Truckload)</h2>
           <p>Cost-effective shipping for smaller freight loads, combining shipments to reduce costs and carbon footprint.</p>
+
+          <button class="book-btn" data-service="LTL (Less Than Truckload)">Book LTL Service</button>
+
+          <form class="booking-form" data-service="LTL (Less Than Truckload)" style="display:none;">
+            <label>Name:</label>
+            <input type="text" name="name" required placeholder="Your full name" />
+            <label>Email:</label>
+            <input type="email" name="email" required placeholder="you@example.com" />
+            <label>Pickup ZIP:</label>
+            <input type="text" name="pickup" required pattern="\d{5}" placeholder="e.g. 90210" />
+            <label>Delivery ZIP:</label>
+            <input type="text" name="delivery" required pattern="\d{5}" placeholder="e.g. 30301" />
+            <label>Weight (lbs):</label>
+            <input type="number" name="weight" min="1" required placeholder="e.g. 500" />
+            <button type="submit">Submit Booking</button>
+          </form>
+
+          <div class="booking-confirmation" data-service="LTL (Less Than Truckload)"></div>
         </div>
+
         <div class="service-item">
           <h2>FTL (Full Truckload)</h2>
           <p>Dedicated truck shipments for large freight loads, ensuring fast, secure, and direct delivery.</p>
+
+          <button class="book-btn" data-service="FTL (Full Truckload)">Book FTL Service</button>
+
+          <form class="booking-form" data-service="FTL (Full Truckload)" style="display:none;">
+            <label>Name:</label>
+            <input type="text" name="name" required placeholder="Your full name" />
+            <label>Email:</label>
+            <input type="email" name="email" required placeholder="you@example.com" />
+            <label>Pickup ZIP:</label>
+            <input type="text" name="pickup" required pattern="\d{5}" placeholder="e.g. 90210" />
+            <label>Delivery ZIP:</label>
+            <input type="text" name="delivery" required pattern="\d{5}" placeholder="e.g. 30301" />
+            <label>Weight (lbs):</label>
+            <input type="number" name="weight" min="1" required placeholder="e.g. 10000" />
+            <button type="submit">Submit Booking</button>
+          </form>
+
+          <div class="booking-confirmation" data-service="FTL (Full Truckload)"></div>
         </div>
+
         <div class="service-item">
           <h2>Expedited Shipping</h2>
           <p>Priority shipping options for urgent freight needs with guaranteed delivery times.</p>
+
+          <button class="book-btn" data-service="Expedited Shipping">Book Expedited Shipping</button>
+
+          <form class="booking-form" data-service="Expedited Shipping" style="display:none;">
+            <label>Name:</label>
+            <input type="text" name="name" required placeholder="Your full name" />
+            <label>Email:</label>
+            <input type="email" name="email" required placeholder="you@example.com" />
+            <label>Pickup ZIP:</label>
+            <input type="text" name="pickup" required pattern="\d{5}" placeholder="e.g. 90210" />
+            <label>Delivery ZIP:</label>
+            <input type="text" name="delivery" required pattern="\d{5}" placeholder="e.g. 30301" />
+            <label>Weight (lbs):</label>
+            <input type="number" name="weight" min="1" required placeholder="e.g. 2000" />
+            <button type="submit">Submit Booking</button>
+          </form>
+
+          <div class="booking-confirmation" data-service="Expedited Shipping"></div>
         </div>
+
         <div class="service-item">
           <h2>Freight Tracking</h2>
           <p>Real-time updates on your shipment status through our online portal or API integration.</p>
+
+          <button class="book-btn" data-service="Freight Tracking">Track a Shipment</button>
+
+          <form class="booking-form" data-service="Freight Tracking" style="display:none;">
+            <label>Email:</label>
+            <input type="email" name="email" required placeholder="you@example.com" />
+            <label>Tracking Number:</label>
+            <input type="text" name="tracking" required placeholder="Enter tracking number" />
+            <button type="submit">Track</button>
+          </form>
+
+          <div class="booking-confirmation" data-service="Freight Tracking"></div>
         </div>
       </div>
     </section>
@@ -49,5 +118,53 @@
   <footer>
     <p>&copy; 2025 True North Freight. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Show/hide booking form on button click
+    document.querySelectorAll('.book-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const service = button.dataset.service;
+        const form = document.querySelector(`.booking-form[data-service="${service}"]`);
+        const confirmation = document.querySelector(`.booking-confirmation[data-service="${service}"]`);
+
+        // Hide confirmation if visible
+        confirmation.textContent = '';
+
+        // Toggle form visibility
+        if (form.style.display === 'none' || form.style.display === '') {
+          form.style.display = 'block';
+          button.textContent = 'Cancel';
+        } else {
+          form.style.display = 'none';
+          button.textContent = `Book ${service}`;
+        }
+      });
+    });
+
+    // Handle booking form submit with validation and confirmation
+    document.querySelectorAll('.booking-form').forEach(form => {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        // Simple validation via HTML required/pattern attributes
+
+        const service = form.dataset.service;
+        const confirmation = document.querySelector(`.booking-confirmation[data-service="${service}"]`);
+        const button = document.querySelector(`.book-btn[data-service="${service}"]`);
+
+        // Simulate sending booking
+        confirmation.style.color = '#0077cc';
+        confirmation.textContent = 'Submitting...';
+
+        setTimeout(() => {
+          confirmation.style.color = 'green';
+          confirmation.textContent = `Thank you for booking the ${service} service. Our team will contact you shortly.`;
+          form.reset();
+          form.style.display = 'none';
+          button.textContent = `Book ${service}`;
+        }, 1200);
+      });
+    });
+  </script>
 </body>
 </html>
