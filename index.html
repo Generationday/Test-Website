@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>True North Freight - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">True North Freight</div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="freight-tool.html">Freight Tool API</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Reliable Freight Shipping Across the USA</h1>
+      <p>Get fast, accurate freight quotes with our smart AI tool below.</p>
+
+      <div class="ai-quote-window">
+        <h2>Quick Freight Quote</h2>
+        <form id="quoteForm">
+          <label for="origin">Origin ZIP Code:</label>
+          <input type="text" id="origin" name="origin" maxlength="5" required pattern="\d{5}" placeholder="e.g. 90210" />
+
+          <label for="destination">Destination ZIP Code:</label>
+          <input type="text" id="destination" name="destination" maxlength="5" required pattern="\d{5}" placeholder="e.g. 30301" />
+
+          <label for="weight">Weight (lbs):</label>
+          <input type="number" id="weight" name="weight" min="1" max="100000" required placeholder="e.g. 500" />
+
+          <button type="submit">Get Quote</button>
+        </form>
+
+        <div id="quoteResult" class="quote-result"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 True North Freight. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
